@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>四季物语 · Demo</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div id="app">
+    <header class="topbar">
+      <div>
+        <div class="logo">四季物语</div>
+        <div class="subtitle">一个只需要点击的单机养成世界</div>
+      </div>
+      <div class="top-stats">
+        <span>☀️ 第 <b id="day">1</b> 天</span>
+        <span>🌱 春季</span>
+        <span>🕘 <b id="time">08:00</b></span>
+        <span>💰 <b id="gold">500</b> G</span>
+      </div>
+    </header>
+
+    <main class="layout">
+      <aside class="sidebar">
+        <button class="nav active" data-page="home">🏠 <span>家园</span></button>
+        <button class="nav" data-page="farm">🌱 <span>农场</span></button>
+        <button class="nav" data-page="fishing">🎣 <span>钓鱼</span></button>
+        <button class="nav" data-page="shop">🛒 <span>商店</span></button>
+        <button class="nav" data-page="collection">📖 <span>图鉴</span></button>
+        <button class="nav" data-page="achievement">🏆 <span>成就</span></button>
+        <button class="nav" data-page="bag">🎒 <span>背包</span></button>
+        <button class="nav" data-page="status">📊 <span>状态</span></button>
+        <div class="side-bottom">
+          <div class="energy-label">体力 <b id="energyText">100 / 100</b></div>
+          <div class="energy"><i id="energyBar"></i></div>
+          <button class="end-day" id="endDay">🌙 结束今天</button>
+        </div>
+      </aside>
+
+      <section class="content">
+        <div id="page"></div>
+      </section>
+    </main>
+  </div>
+  <script src="./game.js"></script>
+</body>
+</html>
