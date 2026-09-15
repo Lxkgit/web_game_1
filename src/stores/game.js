@@ -77,10 +77,20 @@ export function gainExperience(value) {
   }
 }
 
+function clearFarm() {
+  for (const plot of gameState.farm) {
+    plot.crop = null
+    plot.plantedDay = 0
+    plot.readyDay = 0
+  }
+}
+
 export function syncSeason() {
   const season = getSeasonForDay(gameState.day)
+  const changed = gameState.season !== season
   gameState.season = season
   setSeasonCrops(season)
+  if (changed) clearFarm()
 }
 
 export function advanceDay() {
@@ -90,13 +100,7 @@ export function advanceDay() {
   setSeasonCrops(gameState.season)
 
   if (gameState.season !== previousSeason) {
-    for (const plot of gameState.farm) {
-      if (plot.crop) {
-        plot.crop = null
-        plot.plantedDay = 0
-        plot.readyDay = 0
-      }
-    }
+    clearFarm()
     const name = { spring: '春季', summer: '夏季', fall: '秋季', winter: '冬季' }[gameState.season]
     addLog(`进入了${name}。上一季未收获的作物已经枯萎。`)
   }
