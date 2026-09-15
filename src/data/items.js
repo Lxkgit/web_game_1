@@ -1,5 +1,8 @@
 export const items = [
-  { id: 'seed_potato', name: '土豆种子', icon: '🌱', category: '作物', price: 20, sellPrice: 8 },
+  { id: 'seed_potato', name: '土豆种子', icon: '🌱', category: '作物种子', price: 20, sellPrice: 8 },
+  { id: 'seed_carrot', name: '胡萝卜种子', icon: '🥕', category: '作物种子', price: 28, sellPrice: 10 },
+  { id: 'seed_tomato', name: '番茄种子', icon: '🍅', category: '作物种子', price: 35, sellPrice: 12 },
+  { id: 'seed_strawberry', name: '草莓种子', icon: '🍓', category: '作物种子', price: 50, sellPrice: 15 },
   { id: 'potato', name: '土豆', icon: '🥔', category: '作物', sellPrice: 35 },
   { id: 'carrot', name: '胡萝卜', icon: '🥕', category: '作物', sellPrice: 45 },
   { id: 'tomato', name: '番茄', icon: '🍅', category: '作物', sellPrice: 55 },
@@ -7,6 +10,7 @@ export const items = [
   { id: 'fish_roach', name: '溪鱼', icon: '🐟', category: '鱼类', sellPrice: 40 },
   { id: 'fish_carp', name: '鲤鱼', icon: '🐠', category: '鱼类', sellPrice: 75 },
   { id: 'fish_trout', name: '虹鳟', icon: '🐡', category: '鱼类', sellPrice: 120 },
+  { id: 'golden_fish', name: '金色锦鲤', icon: '✨', category: '传说', sellPrice: 500 },
   { id: 'shell', name: '河贝', icon: '🐚', category: '采集', sellPrice: 25 },
   { id: 'stone', name: '石头', icon: '🪨', category: '矿物', sellPrice: 10 },
   { id: 'crystal', name: '月光晶', icon: '💎', category: '矿物', sellPrice: 180 },
