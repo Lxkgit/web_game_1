@@ -1,4 +1,5 @@
 import { reactive } from 'vue'
+import { setSeasonCrops } from '../data/crops'
 
 export const gameState = reactive({
   day: 1,
@@ -41,6 +42,16 @@ export const gameState = reactive({
   log: []
 })
 
+const seasons = ['spring', 'summer', 'fall', 'winter']
+
+export function getSeasonForDay(day) {
+  return seasons[Math.floor((day - 1) / 28) % 4]
+}
+
+export function getSeasonDay(day) {
+  return ((day - 1) % 28) + 1
+}
+
 export function addLog(text) {
   gameState.log.unshift({ day: gameState.day, text })
   gameState.log = gameState.log.slice(0, 20)
@@ -65,3 +76,30 @@ export function gainExperience(value) {
     addLog(`你提升到了 Lv.${gameState.level}。`)
   }
 }
+
+export function syncSeason() {
+  const season = getSeasonForDay(gameState.day)
+  gameState.season = season
+  setSeasonCrops(season)
+}
+
+export function advanceDay() {
+  const previousSeason = gameState.season
+  gameState.day++
+  gameState.season = getSeasonForDay(gameState.day)
+  setSeasonCrops(gameState.season)
+
+  if (gameState.season !== previousSeason) {
+    for (const plot of gameState.farm) {
+      if (plot.crop) {
+        plot.crop = null
+        plot.plantedDay = 0
+        plot.readyDay = 0
+      }
+    }
+    const name = { spring: '春季', summer: '夏季', fall: '秋季', winter: '冬季' }[gameState.season]
+    addLog(`进入了${name}。上一季未收获的作物已经枯萎。`)
+  }
+}
+
+syncSeason()
