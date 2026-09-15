@@ -1,12 +1,12 @@
+import { allCrops } from './crops'
+
+const cropItems = allCrops.flatMap(crop => [
+  { id: crop.seed, name: `${crop.name}种子`, icon: crop.icon, category: '作物种子', price: crop.seedPrice, sellPrice: Math.max(1, Math.floor(crop.seedPrice * 0.4)) },
+  { id: crop.id, name: crop.name, icon: crop.icon, category: '作物', sellPrice: crop.sellPrice }
+])
+
 export const items = [
-  { id: 'seed_potato', name: '土豆种子', icon: '🌱', category: '作物种子', price: 20, sellPrice: 8 },
-  { id: 'seed_carrot', name: '胡萝卜种子', icon: '🥕', category: '作物种子', price: 28, sellPrice: 10 },
-  { id: 'seed_tomato', name: '番茄种子', icon: '🍅', category: '作物种子', price: 35, sellPrice: 12 },
-  { id: 'seed_strawberry', name: '草莓种子', icon: '🍓', category: '作物种子', price: 50, sellPrice: 15 },
-  { id: 'potato', name: '土豆', icon: '🥔', category: '作物', sellPrice: 35 },
-  { id: 'carrot', name: '胡萝卜', icon: '🥕', category: '作物', sellPrice: 45 },
-  { id: 'tomato', name: '番茄', icon: '🍅', category: '作物', sellPrice: 55 },
-  { id: 'strawberry', name: '草莓', icon: '🍓', category: '作物', sellPrice: 90 },
+  ...cropItems,
   { id: 'fish_roach', name: '溪鱼', icon: '🐟', category: '鱼类', sellPrice: 40 },
   { id: 'fish_carp', name: '鲤鱼', icon: '🐠', category: '鱼类', sellPrice: 75 },
   { id: 'fish_trout', name: '虹鳟', icon: '🐡', category: '鱼类', sellPrice: 120 },
